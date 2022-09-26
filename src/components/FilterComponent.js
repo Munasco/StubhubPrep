@@ -25,10 +25,9 @@ export default function FilterComponent({ eventsList }) {
     );
   };
   const filterCity = () => {
-    setEvents((events) => {
-      return {
-        ...events,
-        children: events?.children.map((genre) => {
+    setEvents({
+        ...eventsList,
+        children: eventsList?.children.map((genre) => {
           return {
             ...genre,
             children: genre?.children?.map((artist) => {
@@ -41,13 +40,11 @@ export default function FilterComponent({ eventsList }) {
             })
           };
         })
-      };
-    });
+      })
   };
 
   const filterPrice = () => {
-    setEvents((events) => {
-      return {
+    setEvents({
         ...eventsList,
         children: eventsList?.children.map((genre) => {
           return {
@@ -62,14 +59,13 @@ export default function FilterComponent({ eventsList }) {
             })
           };
         })
-      };
     });
   };
   const changeCity = (e) => {
-    setCity((prev) => e.target.value);
+    setCity(e.target.value);
   };
   const changePrice = (e) => {
-    setPrice((prev) => e.target.value);
+    setPrice(e.target.value);
   };
 
   return (
